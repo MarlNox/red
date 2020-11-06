@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PwC Redactor</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="icon" type="image/x-icon" href="static/images/pwc-favicon.ico" />
+        <link rel="stylesheet" href="static/css/redactor.css">
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/vendor.min.css"> 
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.css">
+    </head>
+
+    <body class="no-outline">
+        <div class="d-flex flex-column a-bg-f5f a-template-container">
+
+            <!-- Notifications sticky bar -->
+            <div class="bar a-notification a-notification-hide a-transition-500ms" data-hide="3">
+                <span class="notification-content">
+                    <span id="notification-text" class="text-left"></span>
+                </span>
+                <div class="a-countdown-wrapper">
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="a-header a-hfn-header-container d-flex align-items-center justify-content-between a-px-20">
+                <div class="d-flex align-items-center">
+                    <div class="a-pwc-logo a-md"></div>
+                    <span class="divider a-mx-20"></span>
+                    <div class="font-weight-medium a-nowrap">PwC Redactor</div>
+                    <span class="divider a-mx-20"></span>
+                    <ul class="d-none d-md-flex menu">
+                        <li class="font-weight-medium a-nowrap item active-link"><a href="document">Document Redactor</a></li>
+                        <li class="font-weight-medium a-nowrap item"><a href="text">Text Redactor</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center a-pl-10">
+                    <div class="a-logout d-none d-md-flex">
+                        <button aria-expanded="false" aria-haspopup="true" class="user-name a-bg-primary a-text-white size-24" data-toggle="dropdown">FL</button>
+                        <div class="dropdown-menu dropdown-menu-right a-shadow-sm border-0 a-user-setting-panel-one w-15">
+                            <div class="dropdown-title">WELCOME FIRST LASTNAME</div>
+                            <div class="user-logout">
+                                <button class="sign-out-btn a-btn a-btn-primary a-btn-lg">Log Out</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex d-md-none a-logout align-items-center">
+                        <button class="user-name a-bg-primary a-text-white size-24" aria-expanded="false" aria-haspopup="true"data-toggle="dropdown">
+                            <span class="appkiticon icon-menu-outline"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right a-shadow-sm border-0 a-user-setting-panel-one w-15">
+                            <div class="dropdown-title">WELCOME FIRST LASTNAME</div>
+                            <ul class="user-infor-list">
+                                <li class="user-infor-list-item active-link"><a href="document">Document Redactor</a></li>
+                                <li class="user-infor-list-item"><a href="text">Text Redactor</a></li>
+                            </ul>
+                            <div class="user-logout border-top">
+                                <button class="sign-out-btn a-btn a-btn-primary a-btn-lg">Log Out</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="a-template-content a-bg-f5f" id="hfn-content-container">
+                <div class="container" style="max-width: 1200px!important;">
+                
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header"><span>PwC Summarizer</span></div>
+                                <div class="a-pb-20 a-pt-10 mw-100-percent overflow-hidden">
+                                    <div class="a-font-16">
+                                        PwC Document Redactor is a PwC internally-developed tool that can assist you and your teams identify name
+                                        conventions in your documents and redact them to help maintain client confidentiality, enable document sharing
+                                        and template creation.
+                                        Use one of the two functionalities to upload your document/text and once you have chosen your target name conventions
+                                        and keywords to replace them with, hit “Redact”. The redacted text with replaced name conventions will appear in the “Redacted text”
+                                        box to the bottom right of your screen.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between align-items-center">
+                                    <span>Recognition criteria</span>
+                                </div>
+                                <div class="a-pb-20 a-pt-10">
+                                    <div class="radio-sample-wrapper">
+                                        <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                            <div class="col-3">
+                                                <label class="a-checkbox a-m-10">
+                                                    <input type="checkbox" id="nameCheck">
+                                                    <span class="a-checkbox-mark">
+                                                        <span class="appkiticon icon-check-mark-fill"></span>
+                                                    </span>
+                                                    <span class="a-checkbox-text">Names</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input disabled id="name" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="placeCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Places</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="place" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="organisationCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Organisations</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="organisation" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="dateCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Miscellaneous</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="date" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between">
+                                    <span>Upload a File</span>
+                                    <button onclick="resetRedactor()" class="a-btn a-btn-primary a-btn-md a-mx-10 w-8" title="Do another redaction">
+                                        <span class="appkiticon a-btn-icon icon-refresh-outline"></span>Reset
+                                    </button>
+                                </div>
+                                <div class="a-py-20 mw-100-percent overflow-hidden">
+                                    <div class="comments-wrapper a-py-10 mw-100-percent">
+                                        <div class="a-p-20 d-table w-100 text-center">
+                                            <div class="a-single-upload-file" id="file-upload">
+                                                <div class="upload-title">File uploader</div>
+                                                <button aria-label="Press to select file" class="upload-drop" id="upload-file-target" tabindex="0">
+                                                    <span class="drop-span">Drag and drop or</span>
+                                                    <span class="browse-span">&nbsp;choose your file <input aria-label="Hidden file upload input" type="file"></span>
+                                                    <input aria-label="Hidden file upload input" multiple="multiple" style="visibility: hidden; position: absolute; width: 1px; height: 1px;" type="file">
+                                                </button>
+                                                <div class="upload-success hidden"></div>
+                                                <div class="upload-error hidden"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between align-items-center">
+                                    <span>Result</span>
+                                    <button onclick="copyToClipBoard()" class="a-btn a-btn-primary a-btn-md w-8" title="Copy text to clipboard">
+                                        <span class="appkiticon a-btn-icon icon-duplicate-outline"></span>Clipboard
+                                    </button>
+                                </div>
+                                <div class="a-pb-20 a-pt-10">
+                                    <div class="a-m-10 add-comments bt-active-wrapper">
+                                        <div class="d-flex flex-column a-textarea-box">
+                                            <textarea id="redactedText" rows="10" class="a-text-field txt-input txt-input-l4 custom-scrollbar"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-wrapper flex-shrink-0 a-p-10 text-center">
+                <div class="a-footer a-text-grey">© 2020 PwC. PwC refers to the PwC network and/or one or more of its member firms, each of which is a separate legal entity. Please see www.pwc.com/structure for further details.</div>
+            </div>
+
+        </div>
+    </body>
+    
+    <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.6.0/vendor.min.js"></script>
+    <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.js"></script>
+    <!-- <script src="/static/js/dropzone.js"></script> -->
+    
+    <script type="text/javascript">
+        $(function() {
+            $("#nameCheck").change(function() {
+                if (this.checked) {
+                    $("#name").prop('disabled', false)
+                }
+                else {
+                    $("#name").prop('disabled', true);
+                    $("#name").val('');
+                }
+            });
+            $("#organisationCheck").change(function() {
+                if (this.checked) {
+                    $("#organisation").prop('disabled', false)
+                }
+                else {
+                    $("#organisation").prop('disabled', true);
+                    $("#organisation").val('');
+                }
+            });
+            $("#placeCheck").change(function() {
+                if (this.checked) {
+                    $("#place").prop('disabled', false)
+                }
+                else {
+                    $("#place").prop('disabled', true);
+                    $("#place").val('');
+                }
+            });
+            $("#dateCheck").change(function() {
+                if (this.checked) {
+                    $("#date").prop('disabled', false)
+                }
+                else {
+                    $("#date").prop('disabled', true);
+                    $("#date").val('');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        initUpload('#upload-file-target', '#file-upload');
+
+        function initUpload(fileTargetID, dom) {
+            
+            const flow = new Flow({
+                target: '/uploads',
+                singleFile: true
+            });
+
+            flow.assignBrowse($(fileTargetID));
+            flow.assignDrop($(fileTargetID));
+
+            flow.on('fileAdded', (file, event) => {
+                $(dom + '.upload-success').removeClass('hidden');
+
+                const fileFullName = file.name;
+                const flagIdx = fileFullName.lastIndexOf('.');
+                const fileType = fileFullName.substring(flagIdx + 1);
+                const fileName = file.name;
+                const uploadSuccess = $(
+                `<div class="upload-success" >
+                    <span class="icon-span-lg ft-wrapper"><span class="fileType"></span></span>
+                    <span class="fileSpan">
+                        <span class="fileName"></span>
+                        <span class="fileSize"></span>
+                    </span>
+                    <div class="progress hidden">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span class="date hidden"></span>
+                    <span class="icon-wrapper">
+                    <button class="appkiticon icon-circle-delete-outline tooltip-link" title="" data-placement="top" data-toggle="tooltip" data-original-title="Delete" data-container="body"></button>
+                    </span>
+                </div>`
+                );
+                const uploadError = $(
+                `<div class="upload-error hidden">
+                    <span class="label label-danger">Error</span>
+                    <span class="message"></span>
+                    <span class="icon-wrapper">
+                        <button class="appkiticon icon-circle-delete-outline tooltip-link" title="" data-placement="top" data-toggle="tooltip" data-original-title="Delete" data-container="body"></button>
+                    </span>
+                </div>`
+                );
+
+                $(dom + ' .upload-success').replaceWith(uploadSuccess);
+                $(dom + ' .upload-error').replaceWith(uploadError);
+                $(dom + ' .icon-circle-delete-outline').on('click', () => {
+                    flow.cancel();
+                    $(dom + ' .upload-success').addClass('hidden');
+                    $(dom + ' .upload-error').addClass('hidden');
+                });
+
+                const iconClass = 'fileType appkiticon icon-file-fill';
+                $(dom + ' .upload-success .fileType').removeClass();
+                $(dom + ' .upload-success .ft-wrapper span:first-child').addClass(iconClass);
+                $(dom + ' .upload-success span.fileName').html(fileName);
+                $(dom + ' .upload-success span.fileName').attr('title', fileName);
+            });
+
+            flow.on('filesSubmitted', (file, event) => {
+                $(dom + ' .upload-success .progress').removeClass('hidden');
+
+                const flowObject = file[0];
+
+                var formData = new FormData();
+                formData.append('file', flowObject.file);
+                formData.append('name', $("#name").val());
+                formData.append('date', $("#date").val());
+                formData.append('place', $("#place").val());
+                formData.append('organisation', $("#organisation").val());
+
+                $.ajax({
+                    url: "/uploads",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        
+                        const fileSizeMB = (flowObject.size / 1024 / 1024).toFixed(1);
+                        const fileSizeKB = (flowObject.size / 1024).toFixed(1);
+                        let fileSize;
+                        if (fileSizeMB < '1') {
+                            fileSize = fileSizeKB + 'KB';
+                        } else {
+                            fileSize = fileSizeMB + 'MB';
+                        }
+                        $(dom + ' .upload-success span.fileSize').html(fileSize);
+                        setTimeout(() => {
+                            $(dom + '.icon-delete-outline').on('click', () => {
+                                flow.removeFile(file);
+                                $(dom + ' .upload-success').addClass('hidden');
+                                $(dom + ' .upload-error').addClass('hidden');
+                            });
+                        }, 600);
+
+                        if (response) {
+                            var text = response.output;
+                            $("#redactedText").val(text);
+                            showNotification("success", "The file was successfully summarized.");
+                        }
+                    },
+                    error: function () {
+                        showNotification("error", "An error occurred, your request could not be processed.");
+                        const errorMessage = 'Failed to upload file “' + flowObject.name + '”';
+                        $(dom + ' .upload-success').addClass('hidden');
+                        $(dom + ' .upload-error').removeClass('hidden');
+                        $(dom + ' .upload-error span.message').html(errorMessage);
+                    }
+                });
+            });
+
+            flow.on('fileProgress', file => {
+                const progressSize = file.progress() * 100 + '%';
+                $(dom + ' .upload-success .progress-bar').css('width', progressSize);
+
+                if (file.isComplete()) {
+                    const date = moment().format('MMM DD,YYYY');
+                    setTimeout(() => {
+                        $(dom + ' .upload-success .progress').addClass('hidden');
+                        $(dom + ' .upload-success span.date').removeClass('hidden');
+                        $(dom + ' .upload-success span.date').html(date);
+                        $(dom + ' .upload-success .icon-circle-delete-outline').toggleClass('icon-circle-delete-outline icon-delete-outline');
+                    }, 1000);
+                }
+            });
+
+            $(dom + '.icon-circle-delete-outline').on('click', () => {
+                flow.cancel();
+                $(dom + ' .upload-success').addClass('hidden');
+                $(dom + ' .upload-error').addClass('hidden');
+            });
+        }
+    </script>
+
+    <script>
+        function resetRedactor() {
+            $('#date').val('');
+            $('#place').val('');
+            $('#organisation').val('');
+            $('#name').val('');
+
+            $('#redactedText').val('');
+
+            $('#dateCheck').prop("checked", false);
+            $('#placeCheck').prop("checked", false);
+            $('#organisationCheck').prop("checked", false);
+            $('#nameCheck').prop("checked", false);
+
+            $('#file-upload .upload-success').addClass('hidden');
+            $('#file-upload .upload-error').addClass('hidden');
+            flow.cancel();
+        };
+
+        function copyToClipBoard() {
+            var copyText = document.getElementById("redactedText");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            showNotification("warning", "Content was copied to the clipboard.");
+        };
+
+        function showNotification(type, text) {
+            if ($('.a-notification').hasClass('success')) {
+                $('.a-notification').removeClass('success');
+            }
+            if ($('.a-notification').hasClass('error')) {
+                $('.a-notification').removeClass('error');
+            }
+            if ($('.a-notification').hasClass('warning')) {
+                $('.a-notification').removeClass('warning');
+            }
+
+            $('.a-notification').addClass(type);
+            $('#notification-text').html(text);
+            $('.a-notification').notification('show');
+        }
+    </script>
+    
+</html>

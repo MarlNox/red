@@ -1,0 +1,259 @@
+        /* Branding */
+        body, html {
+            font-family: PwC Helvetica Neue, Arial!important;
+        }
+
+        /* Appkit body & header */
+        body {
+            min-width: 480px;
+            min-width: 28.125rem;
+        }
+
+        .a-template-container {
+            min-width: 28.125rem;
+        }
+
+        .a-header {
+            min-width: 28.125rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        @media screen and (max-width: 991px) {
+            #hfn-content-container.a-template-content {
+            min-height: calc(100vh - 150px);
+            }
+        }
+
+        .a-template-content {
+            position: relative;
+            display: block;
+            width: 100%;
+            min-height: calc(100vh - 90px);
+        }
+
+        .footer-wrapper {
+            position: relative;
+        }
+
+        /* Supporting IE 11 */
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+            .a-header {
+            position: fixed;
+        }
+
+            #hfn-content-container.a-template-content {
+                padding-top: 3.125rem;
+                transition-duration: 1s;
+                min-height: calc(100vh - 40px);
+            }
+
+            .hfn-pt-150,
+            #hfn-content-container.hfn-pt-150 {
+                padding-top: 9.375rem;
+            }
+
+            @media screen and (max-width: 991px) {
+                #hfn-content-container.a-template-content {
+                    padding-top: 6.25rem;
+                }
+            }
+        }
+
+        /* Supporting Edge 12 -15 */
+        @supports (-ms-accelerator:true) {
+            .a-header {
+                position: fixed;
+            }
+
+            #hfn-content-container.a-template-content {
+                padding-top: 3.125rem;
+                transition-duration: 1s;
+                min-height: calc(100vh - 40px);
+            }
+
+            .hfn-pt-150,
+            #hfn-content-container.hfn-pt-150 {
+                padding-top: 9.375rem;
+            }
+
+            @media screen and (max-width: 991px) {
+                #hfn-content-container.a-template-content {
+                    padding-top: 6.25rem;
+                }
+            }
+        }
+
+        /* Supporting Edge 16+ */
+        @supports (-ms-ime-align:auto) {
+            .a-header {
+                position: fixed;
+            }
+
+            #hfn-content-container.a-template-content {
+                padding-top: 3.125rem;
+                transition-duration: 1s;
+                min-height: calc(100vh - 40px);
+            }
+
+            .hfn-pt-150,
+            #hfn-content-container.hfn-pt-150 {
+                padding-top: 9.375rem;
+            }
+
+            @media screen and (max-width: 991px) {
+                #hfn-content-container.a-template-content {
+                    padding-top: 6.25rem;
+                }
+            }
+        }
+
+        /* Loader */
+        .center-fixed {
+            top: 40%;
+            position:fixed;
+        }
+
+        .loading-large {
+            width: 48px;
+            height: 48px;
+        }
+
+        /* Scrollbar */
+        body::-webkit-scrollbar {
+            width: 15px;
+        }
+        body {
+            scrollbar-width: thin;
+            scrollbar-color: #7d7d7d #dedede;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #7d7d7d ;
+            border-radius: 6px;
+            border: 3px solid #dedede;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #7d7d7d #dedede;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #dedede;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #7d7d7d ;
+            border-radius: 6px;
+            border: 3px solid #dedede;
+        }
+
+        /* Override browser default */
+        a {
+            color:inherit!important;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        textarea:disabled {
+            color: #2d2d2d!important;
+        }
+
+        button:focus, a:focus, li:focus, .user-name:focus, .icon-wrapper:focus {
+            outline: none;
+        }
+
+        /* Widths */
+
+        .w-10 {
+            width: 10rem
+        }
+
+        .w-8 {
+            width: 8rem;
+        }
+
+        .w-15 {
+            width: 15rem;
+        }
+
+        /* Naigation menu */
+        .menu {
+            gap:2rem;
+            margin-bottom:0px;
+        }
+
+        .menu .item:hover {
+            cursor: pointer;
+            color: #d04a02;
+        }
+
+        .menu .active-link:after {
+            content: "";
+            display: block;
+            background-color: #d04a02;
+            height: 1px;
+            position: relative;
+            top: 14px;
+            height: .125rem;
+            outline: none;
+        }
+
+        .user-infor-list .active-link {
+            background-color: rgba(246,219,203,.5);
+            font-weight: 500;
+        }
+
+        /* Custom */
+        .ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+            text-overflow: ellipsis;
+        }
+
+        /* File upload resize on small devices */
+        @media (max-width: 760px) {
+            .upload-drop {
+                max-width: 20rem;
+            }
+            .upload-error {
+                max-width: 20rem;
+            }
+            .upload-success {
+                max-width: 20rem;
+            }
+        } 
+
+        @media (max-width: 450px) {
+            .upload-drop {
+                max-width: 18rem;
+            }
+            .upload-error {
+                max-width: 18rem;
+            }
+            .upload-success {
+                max-width: 18rem;
+            }
+        }
+
+        /* Notification bar */
+        .bar {
+            position:fixed;
+            top:0;
+            width:100%;
+            left:0;
+        }

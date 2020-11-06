@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PwC Redactor</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/pwc-favicon.ico')}}" />
+        <link rel="stylesheet" href="{{url_for('static', filename='css/redactor.css')}}">
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/vendor.min.css"> 
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.css">
+    </head>
+
+    <body class="no-outline">
+        {% block content %}{% endblock %}
+    </body>
+</html>

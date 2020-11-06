@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PwC Redactor</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="icon" type="image/x-icon" href="static/images/pwc-favicon.ico" />
+        <link rel="stylesheet" href="static/css/redactor.css">
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/vendor.min.css"> 
+        <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.css">
+    </head>
+
+    <body class="no-outline">
+        <div class="d-flex flex-column a-bg-f5f a-template-container">
+
+            <!-- Notifications sticky bar -->
+            <div class="bar a-notification a-notification-hide a-transition-500ms" data-hide="3">
+                <span class="notification-content">
+                    <span id="notification-text" class="text-left"></span>
+                </span>
+                <div class="a-countdown-wrapper">
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="a-header a-hfn-header-container d-flex align-items-center justify-content-between a-px-20">
+                <div class="d-flex align-items-center">
+                    <div class="a-pwc-logo a-md"></div>
+                    <span class="divider a-mx-20"></span>
+                    <div class="font-weight-medium a-nowrap">PwC Redactor</div>
+                    <span class="divider a-mx-20"></span>
+                    <ul class="d-none d-md-flex menu">
+                        <li class="font-weight-medium a-nowrap item"><a href="document">Document Redactor</a></li>
+                        <li class="font-weight-medium a-nowrap item active-link"><a href="text">Text Redactor</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center a-pl-10">
+                    <div class="a-logout d-none d-md-flex">
+                        <button aria-expanded="false" aria-haspopup="true" class="user-name a-bg-primary a-text-white size-24" data-toggle="dropdown">FL</button>
+                        <div class="dropdown-menu dropdown-menu-right a-shadow-sm border-0 a-user-setting-panel-one w-15">
+                            <div class="dropdown-title">WELCOME FIRST LASTNAME</div>
+                            <div class="user-logout">
+                                <button class="sign-out-btn a-btn a-btn-primary a-btn-lg">Log Out</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex d-md-none a-logout align-items-center">
+                        <button class="user-name a-bg-primary a-text-white size-24" aria-expanded="false" aria-haspopup="true"data-toggle="dropdown">
+                            <span class="appkiticon icon-menu-outline"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right a-shadow-sm border-0 a-user-setting-panel-one w-15">
+                            <div class="dropdown-title">WELCOME FIRST LASTNAME</div>
+                            <ul class="user-infor-list">
+                                <li class="user-infor-list-item"><a href="document">Document Redactor</a></li>
+                                <li class="user-infor-list-item active-link"><a href="text">Text Redactor</a></li>
+                            </ul>
+                            <div class="user-logout border-top">
+                                <button class="sign-out-btn a-btn a-btn-primary a-btn-lg">Log Out</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="a-template-content a-bg-f5f" id="hfn-content-container">
+                <div class="container" style="max-width: 1200px!important;">
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header"><span>PwC Redactor</span></div>
+                                <div class="a-pb-20 a-pt-10 mw-100-percent overflow-hidden">
+                                    <div class="a-font-16">
+                                        PwC Document Redactor is a PwC internally-developed tool that can assist you and your teams identify name
+                                        conventions in your documents and redact them to help maintain client confidentiality, enable document sharing
+                                        and template creation.
+                                        Use one of the two functionalities to upload your document/text and once you have chosen your target name conventions
+                                        and keywords to replace them with, hit “Redact”. The redacted text with replaced name conventions will appear in the “Redacted text”
+                                        box to the bottom right of your screen.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between align-items-center">
+                                    <span>Recognition criteria</span>
+                                </div>
+                                <div class="a-pb-20 a-pt-10">
+                                    <div class="radio-sample-wrapper">
+                                        <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                            <div class="col-3">
+                                                <label class="a-checkbox a-m-10">
+                                                    <input type="checkbox" id="nameCheck">
+                                                    <span class="a-checkbox-mark">
+                                                        <span class="appkiticon icon-check-mark-fill"></span>
+                                                    </span>
+                                                    <span class="a-checkbox-text">Names</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input disabled id="name" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="placeCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Places</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="place" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="organisationCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Organisations</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="organisation" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                    <div class="a-my-20 d-flex justify-content-between justify-content-md-center align-items-center flex-wrap gutter-wrapper">
+                                        <div class="col-3">
+                                            <label class="a-checkbox a-m-10">
+                                                <input type="checkbox" id="dateCheck">
+                                                <span class="a-checkbox-mark">
+                                                    <span class="appkiticon icon-check-mark-fill"></span>
+                                                </span>
+                                                <span class="a-checkbox-text">Miscellaneous</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input disabled id="date" class="a-text-input d-inline" type="text" placeholder="Enter replacement value">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between align-items-center">
+                                    <span>Text Redactor</span>
+                                    <div class="d-flex justify-content-between">
+                                        <button onclick="resetRedactor()" class="a-btn a-btn-primary a-btn-md a-mx-10 w-8" title="Reset the values">
+                                            <span class="appkiticon a-btn-icon icon-refresh-outline"></span>Reset
+                                        </button>
+                                        <button onclick="submitText()" class="a-btn a-btn-primary a-btn-md w-8" title="React the entered text">
+                                            <span class="appkiticon a-btn-icon icon-circle-checkmark-outline"></span>Redact
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="a-pb-20 a-pt-10">
+                                    <div class="a-m-10 add-comments bt-active-wrapper">
+                                        <div class="d-flex flex-column a-textarea-box">
+                                            <textarea id="originalText" rows="10" class="a-text-field txt-input txt-input-l4 custom-scrollbar"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex">
+                        <div class="col-12 d-table">
+                            <div class="a-panel a-m-20">
+                                <div class="a-panel-header justify-content-between align-items-center">
+                                    <span>Result</span>
+                                    <button onclick="copyToClipBoard()" class="a-btn a-btn-primary a-btn-md w-8" title="Copy text to clipboard">
+                                        <span class="appkiticon a-btn-icon icon-duplicate-outline"></span>Clipboard
+                                    </button>
+                                </div>
+                                <div class="a-pb-20 a-pt-10">
+                                    <div class="a-m-10 add-comments bt-active-wrapper">
+                                        <div class="d-flex flex-column a-textarea-box">
+                                            <textarea id="redactedText" rows="10" class="a-text-field txt-input txt-input-l4 custom-scrollbar"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-wrapper flex-shrink-0 a-p-10 text-center">
+                <div class="a-footer a-text-grey">© 2020 PwC. PwC refers to the PwC network and/or one or more of its member firms, each of which is a separate legal entity. Please see www.pwc.com/structure for further details.</div>
+            </div>
+
+        </div>
+    </body>
+
+    <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.6.0/vendor.min.js"></script>
+    <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#nameCheck").change(function() {
+                if (this.checked) {
+                    $("#name").prop('disabled', false)
+                }
+                else {
+                    $("#name").prop('disabled', true);
+                    $("#name").val('');
+                }
+            });
+            $("#organisationCheck").change(function() {
+                if (this.checked) {
+                    $("#organisation").prop('disabled', false)
+                }
+                else {
+                    $("#organisation").prop('disabled', true);
+                    $("#organisation").val('');
+                }
+            });
+            $("#placeCheck").change(function() {
+                if (this.checked) {
+                    $("#place").prop('disabled', false)
+                }
+                else {
+                    $("#place").prop('disabled', true);
+                    $("#place").val('');
+                }
+            });
+            $("#dateCheck").change(function() {
+                if (this.checked) {
+                    $("#date").prop('disabled', false)
+                }
+                else {
+                    $("#date").prop('disabled', true);
+                    $("#date").val('');
+                }
+            });
+        });
+
+
+        function submitText() {
+            var text = $('#originalText').val();
+            var date = $('#date').val();
+            var place = $('#place').val();
+            var organisation = $('#organisation').val();
+            var name = $('#name').val();
+            var data = { text: text, date: date, place: place, organisation: organisation, name: name }
+
+
+
+            if (text != undefined && text != '') {
+                $.ajax({
+                    url: "/sanitize",
+                    type: "POST",
+                    data: { text: text, date: date, place: place, organisation: organisation, name: name },
+                    success: function (response) {
+                        var textx = response.output;
+                        $("#redactedText").val(textx);
+                        showNotification("success", "The text was successfully redacted.");
+                    },
+                    error: function (error) {
+                        showNotification("error", "An error occurred, your request could not be processed.");
+                    }
+                });
+            }
+        };
+
+        function resetRedactor() {
+            $('#originalText').val('');
+            $('#redactedText').val('');
+            $('#date').val('');
+            $('#place').val('');
+            $('#organisation').val('');
+            $('#name').val('');
+
+            $('#dateCheck').prop("checked", false);
+            $('#placeCheck').prop("checked", false);
+            $('#organisationCheck').prop("checked", false);
+            $('#nameCheck').prop("checked", false);
+        };
+
+        function copyToClipBoard() {
+            var copyText = document.getElementById("redactedText");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            showNotification("warning", "Content was copied to the clipboard.");
+        };
+
+        function showNotification(type, text) {
+            if($('.a-notification').hasClass('success')) {
+                $('.a-notification').removeClass('success');
+            }
+            if($('.a-notification').hasClass('error')) {
+                $('.a-notification').removeClass('error');
+            }
+            if($('.a-notification').hasClass('warning')) {
+                $('.a-notification').removeClass('warning');
+            }
+
+            $('.a-notification').addClass(type);
+            $('#notification-text').html(text);
+            $('.a-notification').notification('show');
+        }
+    </script>
+
+</html>
